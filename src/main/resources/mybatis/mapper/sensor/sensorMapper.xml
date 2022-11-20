@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitoring.sensormonitoring.myBatis.SensorTableMapper">
+    <insert id="insertSensor" parameterType="HashMap">
+        INSERT INTO SENSOR_TBL( IDX, SENSOR_IDX, EQP_IDX, SENSOR_VALUE, SENSOR_NICK)
+        VALUES (SENSOR_TBL_IDX_SEQ.nextval, ${sensor_idx}, ${eqp_idx}, ${sensor_value}, #{sensor_nick})
+    </insert>
+
+
+</mapper>

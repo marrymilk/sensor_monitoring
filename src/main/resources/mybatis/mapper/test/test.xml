@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitoring.sensormonitoring.myBatis.TestMapper">
+    <select id="selectTest" resultType="HashMap">
+        select COMPANY_IDX,COMPANY_NAME
+        from COMPANY_TBL
+        where COMPANY_NAME IN (
+            '1'
+            )
+    </select>
+
+
+</mapper>

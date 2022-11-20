@@ -1,0 +1,18 @@
+
+mybatis:
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: ENC(knjrGfD+onDClLv+jSMrDGp1DBbU7QjyraN0WIrsjMMwm/jHfwoW7g3gMWJ2vRnOTMhQrM2NqBPVna44fbA7rA==)
+    username: ENC(aRgr2zrUuez3zR1eyCdYJYr7bVZjXsx7M4StCLVyzhQ=)
+    password: ENC(aRgr2zrUuez3zR1eyCdYJYr7bVZjXsx7M4StCLVyzhQ=)
+
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
