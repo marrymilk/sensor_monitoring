@@ -1,14 +1,14 @@
 package com.monitoring.sensormonitoring.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class SensorDTO {
 
     /*
@@ -23,13 +23,26 @@ public class SensorDTO {
      */
 
 
-    private String sensorId;
 
-    private String eqpId;
+    //private String sensorIdx;
+//
+//    private String eqpId;
+//
+//    private List<SensorListDTO> sensorList;
+//
+//    private String accessToken;
 
-    private List<SensorListDTO> sensorList;
+    private List<SensorData> sensorData;
 
-    private String accessToken;
+    @Builder
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class SensorData {
+        protected String key;
+        protected Double sensorValue;
 
+    }
 
 }

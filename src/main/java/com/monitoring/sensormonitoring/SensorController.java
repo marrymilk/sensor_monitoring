@@ -2,15 +2,12 @@ package com.monitoring.sensormonitoring;
 
 import com.google.gson.Gson;
 import com.monitoring.sensormonitoring.model.SensorDTO;
-import com.monitoring.sensormonitoring.model.SensorListDTO;
 import com.monitoring.sensormonitoring.myBatis.SensorTableMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,26 +21,35 @@ public class SensorController {
     @PostMapping("/sensor")
     public SensorDTO insertSensor(@RequestBody SensorDTO sensorDTO) {
 
-
-        System.out.println(gson.toJson(sensorDTO));
-        for (SensorListDTO sensorListDTO:
-                sensorDTO.getSensorList()) {
-
-            System.out.println(gson.toJson(sensorListDTO));
-            System.out.println(sensorListDTO.getSensorIdx());
-            System.out.println(sensorListDTO.getSensorValue());
-            System.out.println(sensorListDTO.getSensorNickName());
-            System.out.println(sensorDTO.getEqpId());
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("eqp_idx", sensorDTO.getEqpId());
-            hashMap.put("sensor_idx", sensorListDTO.getSensorIdx());
-            hashMap.put("sensor_value", sensorListDTO.getSensorValue());
-            hashMap.put("sensor_nick", sensorListDTO.getSensorNickName());
+//        SensorDTO.SensorData sensorData = SensorDTO.SensorData.builder()
+//                .sensorValue(44.4)
+//                .key("te")
+//                .build();
 
 
-            sensorTableMapper.insertSensor(hashMap);
+
+        //System.out.println(gson.toJson(sensorDTO));
+//        for (SensorListDTO sensorListDTO:
+//                sensorDTO.getSensorList()) {
+//
+//            System.out.println(gson.toJson(sensorListDTO));
+//            System.out.println(sensorListDTO.getSensorIdx());
+//            System.out.println(sensorListDTO.getSensorValue());
+//            System.out.println(sensorListDTO.getSensorNickName());
+//            System.out.println(sensorDTO.getEqpId());
+//            HashMap<String, Object> hashMap = new HashMap<>();
+//            hashMap.put("eqp_idx", sensorDTO.getEqpId());
+//            hashMap.put("sensor_idx", sensorListDTO.getSensorIdx());
+//            hashMap.put("sensor_value", sensorListDTO.getSensorValue());
+//            hashMap.put("sensor_nick", sensorListDTO.getSensorNickName());
+//
+//
+//            sensorTableMapper.insertSensor(hashMap);
+//        }
+
+        for (SensorDTO.SensorData data : sensorDTO.getSensorData()) {
+            sensorTableMapper.insertSensor(data);
         }
-
 
 
         /**
